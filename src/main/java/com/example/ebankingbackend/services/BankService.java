@@ -1,21 +1,21 @@
 package com.example.ebankingbackend.services;
 
+
 import com.example.ebankingbackend.entities.BankAccount;
 import com.example.ebankingbackend.entities.CurrentAccount;
 import com.example.ebankingbackend.entities.SavingAccount;
 import com.example.ebankingbackend.repositories.BankAccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import javax.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
 public class BankService {
     @Autowired
     private BankAccountRepository bankAccountRepository;
-    public void  consulter(){
-        BankAccount bankAccount = bankAccountRepository.findById("48b5e76e-cd71-464f-a2dd-11f71e088f39").orElse(null);
+    public void consulter(){
+        BankAccount bankAccount = bankAccountRepository.findById("18e0e159-9740-4b00-9973-50e7e0dd80d1").orElse(null);
         if(bankAccount != null){
             System.out.println("************************");
             System.out.println(bankAccount.getId());
@@ -33,7 +33,5 @@ public class BankService {
                 System.out.println(op.getType()+"\t"+op.getOperationDate()+"\t"+op.getAmount());
             });
         }
-
     }
-
 }
